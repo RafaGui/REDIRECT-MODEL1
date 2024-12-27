@@ -1,94 +1,96 @@
+/* Importação da fonte */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-:root{
-    --color-text:#0c0c0c;
+:root {
     --font-family: "Inter", serif;
+    --primary-bg-color: #131313;
+    --text-color-light: #cccccc7c;
+    --text-color-dark: #ffffff61;
+    --highlight-color: rgb(225, 65, 65);
+    --link-color: royalblue;
 }
-body, html{
-    background-color: #131313;
+body, html {
+    background-color: var(--primary-bg-color);
     font-family: var(--font-family);
 }
-.contentPage{
+.contentPage {
     position: relative;
     z-index: 1;
     margin: 0 auto;
-    padding: 4rem 1rem 1rem 1rem;
+    padding: 4rem 1rem 1rem;
     width: 100%;
     max-width: 1100px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation: zoomPage .5s linear;
 }
-.logo{
+.logo {
     width: 100%;
     max-width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 0 auto;
 }
-.logo img{
+.logo img {
     border-radius: 50%;
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-.text{
+.text {
     text-align: center;
     color: #fff;
-    margin: 1rem 0 2rem 0;
+    margin: 1rem 0 2rem;
 }
-.nameUser{
+.nameUser {
     font-size: 1.8rem;
     text-transform: capitalize;
     font-weight: 500;
 }
-.destaqEdit{
-    color: rgb(225, 65, 65);
+.destaqEdit {
+    color: var(--highlight-color);
 }
-.textUser{
+.textUser {
     font-size: 1.1rem;
     padding: 2rem 0;
     width: 100%;
     max-width: 550px;
     margin: 0 auto;
     font-weight: 300;
-    /* display: none; */
-    color: #cccccc7c;
+    color: var(--text-color-light);
 }
-
-.links{
+.links {
     width: 100%;
     max-width: 1100px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* padding: 1rem; */
     gap: 1rem;
 }
-
-.bloco{
+.bloco {
     width: 100%;
     max-width: 1100px;
     position: relative;
     transition: .2s linear;
 }
-.bloco:hover{
+.bloco:hover {
     transform: scale(.99);
 }
-.bloco a img{
+.bloco a img {
     width: 100%;
     object-fit: cover;
-    box-shadow: 0 0 80px #00000055;
+    box-shadow: 0 0 80px #ffffff08;
     border-radius: 20px;
 }
-.shadow{
+.shadow {
     width: 100%;
     height: 50px;
     background: linear-gradient(to top, #ffffff00, #00000076);
@@ -97,44 +99,37 @@ body, html{
     top: 0;
     border-radius: 18px 18px 0 0;
 }
-
-.endPage{
+.endPage {
     position: relative;
     width: 100%;
     padding: 2rem 1rem;
     text-align: center;
-    color: #ffffff61;
+    color: var(--text-color-dark);
     z-index: 1;
 }
-.endPage a{
+.endPage a {
     text-decoration: none;
-    color: royalblue;
+    color: var(--link-color);
 }
-
-@media screen and (max-width:600px) {
-    .links{
-        gap: .5rem;
+@media screen and (max-width: 600px) {
+    .links {
+        gap: 1rem;
     }
-    .bloco{
-        width: 100%;
+    .bloco {
         height: 300px;
     }
-    .bloco a img{
+    .bloco a img {
         height: 100%;
         border-radius: 10px;
     }
-    /* .logo{
-        max-width: 100px;
-    } */
-    .nameUser{
+    .nameUser {
         font-size: 1.1rem;
     }
-    .textUser{
+    .textUser {
         font-size: .85rem;
     }
 }
-
-.bgPage{
+.bgPage {
     position: fixed;
     left: 0;
     top: 0;
@@ -142,8 +137,18 @@ body, html{
     height: 100dvh;
     opacity: .05;
 }
-.bgPage img{
+.bgPage img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+@keyframes zoomPage {
+    0% {
+        margin-top: 10%;
+        opacity: 0;
+    }
+    100% {
+        margin-top: unset;
+        opacity: 1;
+    }
 }
